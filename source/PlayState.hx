@@ -132,7 +132,7 @@ class PlayState extends MusicBeatState
 	public var bfGroup:FlxGroup;
 	public var gfGroup:FlxGroup;
 
-	public static var darkLevels:Array<String> = ['bambiFarmNight', 'daveHouse_night', 'unfairness', 'bedroomNight', 'backyard'];
+	public static var darkLevels:Array<String> = ['bambiFarmNight', 'daveHouse_night', 'unfairness', 'bedroomNight', 'backyard', 'garrett-land'];
 	public var sunsetLevels:Array<String> = ['bambiFarmSunset', 'daveHouse_Sunset'];
 
 	public var stupidx:Float = 0;
@@ -726,6 +726,12 @@ class PlayState extends MusicBeatState
 					stageCheck = 'master';
 				case 'overdrive':
 					stageCheck = 'overdrive';
+				case 'bonkers':
+					stageCheck = 'garrett-land';	
+				case 'bananacore | eletric-cockadoodledoo | electric-cockaldoodledoo':
+					stageCheck = 'banana-hell';
+				case 'confronting-yourself | cuzsie-x-kapi-shipping-cute':
+					stageCheck = 'stage';
 			}
 		}
 		else
@@ -1314,6 +1320,18 @@ class PlayState extends MusicBeatState
 				else credits = LanguageManager.getTextString('exploitation_credit') + " " + (!FlxG.save.data.selfAwareness ? CoolSystemStuff.getUsername() : (shaggyVoice ? 'Shaggy' : 'Boyfriend')) + "!";
 			case 'kabunga':
 				credits = LanguageManager.getTextString('kabunga_credit');
+	                case 'electric-cockaldoodledoo':
+				credits = "Song by Cuzsie! (THIS SONG IS NOT CANON)";
+		        case 'electric-cockadoodledoo':
+				credits = "Song by Cuzsie! (THIS SONG IS NOT CANON)";
+		        case 'confronting-yourself':
+				credits = "Song by Cuzsie!";
+		        case 'bonkers':
+				credits = "Song by Cynda!";
+		        case 'cuzsie-x-kapi-shipping-cute':
+				credits = "Song by Cuzsie! (Original song from Golden Apple!)";
+			case 'bananacore':
+				credits = "Song by Cuzsie! (Original song from Golden Apple!) (THIS SONG IS NOT CANON)";
 			default:
 				credits = '';
 		}
@@ -1411,6 +1429,52 @@ class PlayState extends MusicBeatState
 				preload('backgrounds/void/exploit/expunged_chains');
 				preload('backgrounds/void/exploit/broken_expunged_chain');
 				preload('backgrounds/void/exploit/glitchy_cheating_2');
+			case 'electric-cockaldoodledoo':
+				preload('eletric-cockadoodledoo/characters/v2/Cockey');
+				preload('eletric-cockadoodledoo/characters/v2/Pissey');
+				preload('eletric-cockadoodledoo/characters/v2/Pooper');
+				preload('eletric-cockadoodledoo/characters/v2/Shartey');
+				preload('eletric-cockadoodledoo/characters/Kapi');
+				preload('eletric-cockadoodledoo/characters/cuzsiee');
+				preload('eletric-cockadoodledoo/characters/PizzaMan');
+				preload('bambi/ExpungedFinal');
+				preload('bambi/bambiRemake');
+				preload('eletric-cockadoodledoo/indihome');
+				preload('eletric-cockadoodledoo/kapicuzsie_back');
+				preload('eletric-cockadoodledoo/kapicuzsie_front');
+				preload('eletric-cockadoodledoo/muffin');
+				preload('eletric-cockadoodledoo/sad_bambi');
+			case 'eletric-cockadoodledoo':
+				preload('eletric-cockadoodledoo/characters/Bartholemew');
+				preload('eletric-cockadoodledoo/characters/cockey');
+				preload('eletric-cockadoodledoo/characters/Pooper');
+				preload('eletric-cockadoodledoo/characters/Kapi');
+				preload('eletric-cockadoodledoo/characters/cuzsiee');
+				preload('eletric-cockadoodledoo/characters/PizzaMan');
+				preload('bambi/ExpungedFinal');
+				preload('bambi/bambiRemake');
+				preload('eletric-cockadoodledoo/indihome');
+				preload('eletric-cockadoodledoo/kapicuzsie_back');
+				preload('eletric-cockadoodledoo/kapicuzsie_front');
+				preload('eletric-cockadoodledoo/muffin');
+				preload('eletric-cockadoodledoo/sad_bambi');
+			        preload('eletric-cockadoodledoo/characters/Pissey');
+			case 'bananacore':
+				preload('bananacore/characters/Bartholemew');
+				preload('bananacore/characters/bombu');
+				preload('bananacore/characters/Cockey');
+				preload('bananacore/characters/Kapi');
+				preload('bananacore/characters/PizzaMan');
+				preload('bananacore/indihome');
+				preload('bananacore/kapicuzsie_back');
+				preload('bananacore/kapicuzsie_front');
+				preload('bananacore/muffin');
+				preload('bananacore/sad_bambi');
+				preload('bananacore/shaggy from fnf 1');
+				preload('bananacore/characters/Bartholemew');
+				preload('bananacore/characters/Cockey');
+				preload('bananacore/characters/bombu');
+				preload('expunged/old/bambi-unfair');
 			case 'bot-trot':
 				preload('backgrounds/bedroom/night/bed');
 				preload('backgrounds/bedroom/night/bg');
@@ -1865,7 +1929,32 @@ class PlayState extends MusicBeatState
 				sprites.add(expungedBG);
 				add(expungedBG);
 				voidShader(expungedBG);
-			case 'red-void' | 'green-void' | 'glitchy-void':
+	
+			case 'garrett-land':
+				bgZoom = 0.6;
+				stageName = 'garrettLand';
+				
+				var bg:BGSprite = new BGSprite('bg', 350, 50, Paths.image('backgrounds/field/nightSky', 'shared'), null, 1.4, 1.4, true, true);
+				bg.setGraphicSize(Std.int(bg.width * 2));
+				sprites.add(bg);
+				add(bg);
+
+				var backGrass:BGSprite = new BGSprite('backGrass', 250, 50, Paths.image('backgrounds/field/grass', 'shared'), null, 1.25, 1.1, true, true);
+				backGrass.setGraphicSize(Std.int(backGrass.width * 1.5));
+				sprites.add(backGrass);
+				add(backGrass);
+
+				var gate:BGSprite = new BGSprite('gate', 100, 200, Paths.image('backgrounds/field/gates', 'shared'), null, 1.05, 1, true, true);
+				gate.setGraphicSize(Std.int(gate.width * 1.5));
+				sprites.add(gate);
+				add(gate);
+
+				var floor:BGSprite = new BGSprite('floor', 100, 200, Paths.image('backgrounds/field/floor', 'shared'), null, 1, 1, true, true);
+				floor.setGraphicSize(Std.int(floor.width * 1.5));
+				sprites.add(floor);
+				add(floor);
+
+			case 'red-void' | 'green-void' | 'glitchy-void' | 'banana-hell':
 				bgZoom = 0.7;
 
 				var bg:BGSprite = new BGSprite('void', -600, -200, '', null, 1, 1, false, true);
@@ -1886,6 +1975,13 @@ class PlayState extends MusicBeatState
 						bg.setPosition(0, 200);
 						bg.setGraphicSize(Std.int(bg.width * 3));
 						stageName = 'unfairness';
+					case 'banana-hell': // this is a Cockey moment
+						bg.loadGraphic(Paths.image('backgrounds/void/bananaVoid1'));
+						bg.setPosition(-700, -300);
+						bg.setGraphicSize(Std.int(bg.width * 2), Std.int(bg.height * 2));
+						bgZoom = 0.5;
+						voidShader(bg);
+						stageName = 'banana-land';
 				}
 				sprites.add(bg);
 				add(bg);
@@ -2102,6 +2198,20 @@ class PlayState extends MusicBeatState
 		{
 			defaultCamZoom = bgZoom;
 			curStage = stageName;
+		// that one cuzsie and kapi part of eletric cockadoodledoo
+		if (SONG.song.toLowerCase() == "eletric-cockadoodledoo", "bananacore", "electric-cockaldoodledoo")
+		{
+			var bg:BGSprite = new BGSprite('bg', -600, -200, Paths.image('eletric-cockadoodledoo/kapicuzsie_back'), null, 0.9, 0.9);
+			cuzsieKapiEletricCockadoodledoo.push(bg);
+			add(bg);
+			bg.visible = false;
+	
+			var stageFront:BGSprite = new BGSprite('stageFront', -650, 600, Paths.image('eletric-cockadoodledoo/kapicuzsie_front'), null, 0.9, 0.9);
+			stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+			stageFront.updateHitbox();
+			cuzsieKapiEletricCockadoodledoo.push(stageFront);
+			add(stageFront);
+			stageFront.visible = false;
 		}
 
 		return sprites;
@@ -6240,6 +6350,14 @@ class PlayState extends MusicBeatState
 		});
 	}
 	var black:FlxSprite;
+	var vineBoomTriggers:Array<Int> = [
+		524, 588, 666, 720, 736, 752, 1088, 1092, 1096, 1100, 1152, 1168, 1172, 1174, 1176, 1180, 2113, 2144, 2176
+	];
+	var shag:FlxSprite;
+	var indihome:FlxSprite;
+	var hideStuff:FlxSprite;
+	var sexDad:Character;
+	var curECCCharacter:String = "cockey";
 
 	override function stepHit()
 	{
@@ -7026,6 +7144,510 @@ class PlayState extends MusicBeatState
 							remove(spotLight);
 						}});
 						FlxTween.tween(black, {alpha: 0}, 1);
+				}
+			case 'eletric-cockadoodledoo':
+				switch (curStep)
+				{
+					case 147:
+						FlxTween.tween(dad, {alpha: 1}, 0.5);
+					case 480:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, 'bartholemew', false);
+						add(dad);
+						trace("Bartholemew");
+					case 512:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, curECCCharacter, false);
+						add(dad);
+					case 832:
+						FlxG.camera.flash(FlxColor.WHITE, 1);
+						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid2'));
+						trace("Phase 2");
+						sexDad = new Character(dad.x - 1000, dad.y, "cockey");
+						add(sexDad);
+						dad.alpha = 0;
+					case 842:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "pissey", false);
+						add(dad);
+						dad.alpha = 0;
+						curECCCharacter = "pissey";
+						FlxTween.tween(dad, {alpha: 1}, 5);
+					case 1655:
+						for (sprite in cuzsieKapiEletricCockadoodledoo)
+						{
+							sprite.visible = true;
+						}
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "eletric-cockadoodledoo-kapi", false);
+						add(dad);
+
+						trace("Kapi BG");
+
+						defaultCamZoom += 0.2;
+					case 1728:
+						for (sprite in cuzsieKapiEletricCockadoodledoo)
+						{
+							sprite.visible = false;
+						}
+						remove(dad);
+						dad = new Character(dad.x, dad.y, curECCCharacter, false);
+						add(dad);
+
+						trace("Reset Kapi BG");
+
+						defaultCamZoom -= 0.2;
+					case 1984:
+						FlxG.camera.zoom += 1;
+					case 1856:
+						trace("BF Float");
+						FlxTween.tween(boyfriend, {y: boyfriend.y - 700}, 8);
+					case 1983:
+						boyfriend.y = boyfriend.y + 700;
+						FlxG.camera.flash(FlxColor.WHITE, 1);
+						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid3'));
+						trace("Phase 3");
+
+						curECCCharacter = "pooper";
+
+					case 2054:
+						dad.flipX = !dad.flipX;
+					case 2180:
+						sexDad.flipX = !sexDad.flipX;
+					case 2208:
+						FlxG.camera.flash(FlxColor.WHITE, 0.25);
+						dad.visible = false;
+						sexDad.visible = false;
+						
+					case 2624:
+						indihome = new FlxSprite().loadGraphic(Paths.image("eletric-cockadoodledoo/indihome", 'shared'));
+						indihome.screenCenter();
+						indihome.cameras = [camHUD];
+						add(indihome);
+						trace("Indihome");
+					case 2688:
+						remove(indihome);
+					case 2818 | 2944:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "bambi-new", false);
+						add(dad);
+					case 2848 | 2972:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, curECCCharacter, false);
+						add(dad);
+					case 2912:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "expunged", false);
+						add(dad);
+					case 2989:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "ayo-the-pizza-here", false);
+						add(dad);
+
+						dad.playAnim('pizza');
+
+						trace("Ayo the pizza here");
+					case 3008:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, curECCCharacter, false);
+						add(dad);
+					case 3200:
+						// re-using indihome bc im lazy as fuck
+						indihome = new FlxSprite().loadGraphic(Paths.image("eletric-cockadoodledoo/muffin", 'shared'));
+						indihome.screenCenter();
+						indihome.cameras = [camHUD];
+						add(indihome);
+
+						trace("EGG McMuffin");
+					case 3328:
+						remove(indihome);
+						camHUD.visible = false;
+						boyfriend.playAnim("firstDeath");
+
+						trace("Death Animation");
+					case 3360:
+						boyfriend.playAnim("deathLoop");
+
+						trace("Death Loop");
+					case 3392:
+						camHUD.visible = true;
+						boyfriend.playAnim("idle");
+					case 3696:
+						hideStuff = new FlxSprite().makeGraphic(2560, 1440, FlxColor.BLACK);
+						hideStuff.screenCenter();
+						add(hideStuff);
+						camHUD.visible = false;
+					case 3728:
+						camHUD.visible = true;
+						camHUD.alpha = 0;
+
+						dadStrums.forEach(function(spr:FlxSprite)
+						{
+							spr.alpha = 0;
+						});
+
+						FlxTween.tween(camHUD, {alpha: 1}, 3);
+				}
+
+				// Vinebooms
+				for (trigger in vineBoomTriggers)
+				{
+					if (curStep == trigger)
+					{
+						FlxG.camera.flash(FlxColor.WHITE, 0.25);
+						var sadBamb:FlxSprite = new FlxSprite().loadGraphic(Paths.image("bananacore/sad_bambi", 'shared'));
+						sadBamb.screenCenter();
+						sadBamb.cameras = [camHUD];
+						add(sadBamb);
+
+						FlxTween.tween(sadBamb, {alpha: 0}, 1, {onComplete: function(tween:FlxTween)
+						{
+							remove(sadBamb);
+						}});
+					}
+				}
+
+			case 'eletric-cockadoodledoo':
+				switch (curStep)
+				{
+					case 147:
+						FlxTween.tween(dad, {alpha: 1}, 0.5);
+					case 480:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, 'bartholemew', false);
+						add(dad);
+						trace("Bartholemew");
+					case 512:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, curECCCharacter, false);
+						add(dad);
+					case 832:
+						FlxG.camera.flash(FlxColor.WHITE, 1);
+						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid2'));
+						trace("Phase 2");
+						sexDad = new Character(dad.x - 1000, dad.y, "cockey");
+						add(sexDad);
+						dad.alpha = 0;
+					case 842:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "pissey", false);
+						add(dad);
+						dad.alpha = 0;
+						curECCCharacter = "pissey";
+						iconP2.changeIcon(curECCCharacter);
+						FlxTween.tween(dad, {alpha: 1}, 5);
+					case 1655:
+						for (sprite in cuzsieKapiEletricCockadoodledoo)
+						{
+							sprite.visible = true;
+						}
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "cuzsiee", false);
+						add(dad);
+						iconP2.changeIcon(curECCCharacter);
+
+						trace("Kapi BG");
+
+						defaultCamZoom += 0.2;
+					case 1728:
+						for (sprite in cuzsieKapiEletricCockadoodledoo)
+						{
+							sprite.visible = false;
+						}
+						remove(dad);
+						dad = new Character(dad.x, dad.y, curECCCharacter, false);
+						add(dad);
+						curECCCharacter = "shartey";
+						iconP2.changeIcon(curECCCharacter);
+
+						trace("Reset Kapi BG");
+
+						defaultCamZoom -= 0.2;
+					case 1984:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "pissey", false);
+						add(dad);
+						dad.alpha = 0;
+						curECCCharacter = "pissey";
+						iconP2.changeIcon(curECCCharacter);
+					case 1856:
+						trace("BF Float");
+						FlxTween.tween(boyfriend, {y: boyfriend.y - 700}, 8);
+					case 1983:
+						boyfriend.y = boyfriend.y + 700;
+						FlxG.camera.flash(FlxColor.WHITE, 1);
+						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid3'));
+						trace("Phase 3");
+
+						curECCCharacter = "pooper";
+
+					case 2054:
+						dad.flipX = !dad.flipX;
+					case 2180:
+						sexDad.flipX = !sexDad.flipX;
+					case 2208:
+						FlxG.camera.flash(FlxColor.WHITE, 0.25);
+						dad.visible = false;
+						sexDad.visible = false;
+					case 2239:	
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "pooper", false);
+						add(dad);
+						dad.alpha = 0;
+						curECCCharacter = "pooper";
+						iconP2.changeIcon(curECCCharacter);
+						FlxTween.tween(dad, {alpha: 1}, 0.5);
+					case 2624:
+						indihome = new FlxSprite().loadGraphic(Paths.image("eletric-cockadoodledoo/indihome", 'shared'));
+						indihome.screenCenter();
+						indihome.cameras = [camHUD];
+						add(indihome);
+						trace("Indihome");
+					case 2688:
+						remove(indihome);
+					case 2818 | 2944:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "bambi-new", false);
+						add(dad);
+						iconP2.changeIcon(curECCCharacter);
+					case 2848 | 2972:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, curECCCharacter, false);
+						add(dad);
+						iconP2.changeIcon(curECCCharacter);
+					case 2912:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "expunged", false);
+						add(dad);
+						iconP2.changeIcon(curECCCharacter);
+					case 2989:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "ayo-the-pizza-here", false);
+						add(dad);
+						iconP2.changeIcon(curECCCharacter);
+
+						dad.playAnim('pizza');
+
+						trace("Ayo the pizza here");
+					case 3008:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, curECCCharacter, false);
+						add(dad);
+						iconP2.changeIcon(curECCCharacter);
+					case 3200:
+						// re-using indihome bc im lazy as fuck
+						indihome = new FlxSprite().loadGraphic(Paths.image("eletric-cockadoodledoo/muffin", 'shared'));
+						indihome.screenCenter();
+						indihome.cameras = [camHUD];
+						add(indihome);
+
+						trace("EGG McMuffin");
+					case 3328:
+						remove(indihome);
+						camHUD.visible = false;
+						boyfriend.playAnim("firstDeath");
+						boyfriend.canDance = false;
+
+						trace("Death Animation");
+					case 3360:
+						boyfriend.playAnim("deathLoop");
+
+						trace("Death Loop");
+					case 3392:
+						camHUD.visible = true;
+						boyfriend.playAnim("idle");
+						boyfriend.canDance = true;
+					case 3696:
+						hideStuff = new FlxSprite().makeGraphic(2560, 1440, FlxColor.BLACK);
+						hideStuff.screenCenter();
+						add(hideStuff);
+						camHUD.visible = false;
+					case 3728:
+						camHUD.visible = true;
+						camHUD.alpha = 0;
+
+						dadStrums.forEach(function(spr:FlxSprite)
+						{
+							spr.alpha = 0;
+						});
+
+						FlxTween.tween(camHUD, {alpha: 1}, 3);
+					case 3568:
+						FlxTween.tween(dad, {alpha: 0}, 6);	
+				}
+
+				// Vinebooms
+				for (trigger in vineBoomTriggers)
+				{
+					if (curStep == trigger)
+					{
+						FlxG.camera.flash(FlxColor.WHITE, 0.25);
+						var sadBamb:FlxSprite = new FlxSprite().loadGraphic(Paths.image("bananacore/sad_bambi", 'shared'));
+						sadBamb.screenCenter();
+						sadBamb.cameras = [camHUD];
+						add(sadBamb);
+
+						FlxTween.tween(sadBamb, {alpha: 0}, 1, {onComplete: function(tween:FlxTween)
+						{
+							remove(sadBamb);
+						}});
+					}
+				}
+			case 'bananacore':
+				switch (curStep)
+				{
+					case 480:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, 'bartholemew', false);
+						add(dad);
+						trace("Bartholemew");
+					case 512:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, SONG.player2, false);
+						add(dad);
+					case 768:
+						FlxG.camera.flash(FlxColor.WHITE, 1);
+						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid2'));
+						trace("Phase 2");
+					case 1530:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, 'bombu', false);
+						add(dad);
+						trace("bombu");
+					case 1642:
+						for (sprite in cuzsieKapiBananacore)
+						{
+							sprite.visible = true;
+						}
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "bananacore-kapi", false);
+						add(dad);
+
+						trace("Kapi BG");
+					case 1664:
+						for (sprite in cuzsieKapiBananacore)
+						{
+							sprite.visible = false;
+						}
+						remove(dad);
+						dad = new Character(dad.x, dad.y, SONG.player2, false);
+						add(dad);
+
+						trace("Reset Kapi BG");
+						remove(dad);
+						dad = new Character(dad.x, dad.y, 'bombu', false);
+						add(dad);
+						trace("bombu");
+					case 1808:
+						FlxG.camera.zoom += 1;
+					case 1856:
+						trace("BF Float");
+						FlxTween.tween(boyfriend, {y: boyfriend.y - 700}, 5);
+					case 1983:
+						boyfriend.y = boyfriend.y + 700;
+						FlxG.camera.flash(FlxColor.WHITE, 1);
+						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid3'));
+						trace("Phase 3");
+					case 2208:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, 'bambi-unfair-old', false);
+						add(dad);
+						trace("bambi-unfair-old");
+					case 2624:
+						indihome = new FlxSprite().loadGraphic(Paths.image("bananacore/indihome", 'shared'));
+						indihome.screenCenter();
+						indihome.cameras = [camHUD];
+						add(indihome);
+						trace("Indihome");
+					case 2688:
+						remove(indihome);
+					case 2818 | 2944:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "bambi-new", false);
+						add(dad);
+					case 2848 | 2972:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, SONG.player2, false);
+						add(dad);
+					case 2912:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "expunged", false);
+						add(dad);
+					case 2989:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, "ayo-the-pizza-here", false);
+						add(dad);
+
+						dad.playAnim('pizza');
+
+						trace("Ayo the pizza here");
+					case 3008:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, SONG.player2, false);
+						add(dad);
+					case 3200:
+						// re-using indihome bc im lazy as fuck
+						indihome = new FlxSprite().loadGraphic(Paths.image("bananacore/muffin", 'shared'));
+						indihome.screenCenter();
+						indihome.cameras = [camHUD];
+						add(indihome);
+
+						trace("EGG McMuffin");
+					case 3328:
+						remove(indihome);
+						camHUD.visible = false;
+						boyfriend.playAnim("firstDeath");
+
+						trace("Death Animation");
+					case 3360:
+						boyfriend.playAnim("deathLoop");
+
+						trace("Death Loop");
+					case 3392:
+						camHUD.visible = true;
+						boyfriend.playAnim("idle");
+					case 3696:
+						hideStuff = new FlxSprite().makeGraphic(2560, 1440, FlxColor.BLACK);
+						hideStuff.screenCenter();
+						add(hideStuff);
+						camHUD.visible = false;
+					case 3728:
+						camHUD.visible = true;
+						camHUD.alpha = 0;
+
+						dadStrums.forEach(function(spr:FlxSprite)
+						{
+							spr.alpha = 0;
+						});
+
+						FlxTween.tween(camHUD, {alpha: 1}, 3);
+				}
+
+				// Vinebooms
+				for (trigger in vineBoomTriggers)
+				{
+					if (curStep == trigger)
+					{
+						FlxG.camera.flash(FlxColor.WHITE, 0.25);
+						var sadBamb:FlxSprite = new FlxSprite().loadGraphic(Paths.image("bananacore/sad_bambi", 'shared'));
+						sadBamb.screenCenter();
+						sadBamb.cameras = [camHUD];
+						add(sadBamb);
+
+						FlxTween.tween(sadBamb, {alpha: 0}, 1, {onComplete: function(tween:FlxTween)
+						{
+							remove(sadBamb);
+						}});
+					}
+				}
+			case "confronting-yourself":
+				switch (curStep)
+				{
+					case 69:
+						for (spr in backgroundSprites)
+						{
+							FlxTween.tween(spr, {alpha: 0}, 2);
+						}
 				}
 			case 'exploitation':
 				switch(curStep)
