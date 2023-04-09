@@ -2204,6 +2204,7 @@ class PlayState extends MusicBeatState
 		{
 			defaultCamZoom = bgZoom;
 			curStage = stageName;
+		}
 		// that one cuzsie and kapi part of eletric cockadoodledoo
 		if (SONG.song.toLowerCase() == "eletric-cockadoodledoo", "bananacore", "electric-cockaldoodledoo")
 		{
