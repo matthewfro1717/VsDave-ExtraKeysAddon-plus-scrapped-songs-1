@@ -728,7 +728,7 @@ class PlayState extends MusicBeatState
 					stageCheck = 'overdrive';
 				case 'bonkers':
 					stageCheck = 'garrett-land';	
-				case 'bananacore | eletric-cockadoodledoo | electric-cockaldoodledoo':
+				case 'bananacore | eletric-cockadoodledoo | electric-cockadoodledoo-two':
 					stageCheck = 'banana-hell';
 				case 'confronting-yourself | cuzsie-x-kapi-shipping-cute':
 					stageCheck = 'stage';
@@ -1429,7 +1429,7 @@ class PlayState extends MusicBeatState
 				preload('backgrounds/void/exploit/expunged_chains');
 				preload('backgrounds/void/exploit/broken_expunged_chain');
 				preload('backgrounds/void/exploit/glitchy_cheating_2');
-			case 'electric-cockaldoodledoo':
+			case 'electric-cockadoodledoo-two':
 				preload('eletric-cockadoodledoo/characters/v2/Cockey');
 				preload('eletric-cockadoodledoo/characters/v2/Pissey');
 				preload('eletric-cockadoodledoo/characters/v2/Pooper');
@@ -1444,6 +1444,8 @@ class PlayState extends MusicBeatState
 				preload('eletric-cockadoodledoo/kapicuzsie_front');
 				preload('eletric-cockadoodledoo/muffin');
 				preload('eletric-cockadoodledoo/sad_bambi');
+                                preload('backgrounds/void/bananaVoid2');
+                                preload('backgrounds/void/bananaVoid3');
 			case 'eletric-cockadoodledoo':
 				preload('eletric-cockadoodledoo/characters/Bartholemew');
 				preload('eletric-cockadoodledoo/characters/cockey');
@@ -1459,6 +1461,8 @@ class PlayState extends MusicBeatState
 				preload('eletric-cockadoodledoo/muffin');
 				preload('eletric-cockadoodledoo/sad_bambi');
 			        preload('eletric-cockadoodledoo/characters/Pissey');
+                                preload('backgrounds/void/bananaVoid2');
+                                preload('backgrounds/void/bananaVoid3');
 			case 'bananacore':
 				preload('bananacore/characters/Bartholemew');
 				preload('bananacore/characters/bombu');
@@ -1474,7 +1478,9 @@ class PlayState extends MusicBeatState
 				preload('bananacore/characters/Bartholemew');
 				preload('bananacore/characters/Cockey');
 				preload('bananacore/characters/bombu');
-				preload('expunged/old/bambi-unfair');
+				preload('expunged/old/bambi-unfair');                       
+	                        preload('backgrounds/void/bananaVoid2');
+                                preload('backgrounds/void/bananaVoid3');
 			case 'bot-trot':
 				preload('backgrounds/bedroom/night/bed');
 				preload('backgrounds/bedroom/night/bg');
@@ -7154,7 +7160,6 @@ class PlayState extends MusicBeatState
 						remove(dad);
 						dad = new Character(dad.x, dad.y, 'bartholemew', false);
 						add(dad);
-						trace("Bartholemew");
 					case 512:
 						remove(dad);
 						dad = new Character(dad.x, dad.y, curECCCharacter, false);
@@ -7162,7 +7167,6 @@ class PlayState extends MusicBeatState
 					case 832:
 						FlxG.camera.flash(FlxColor.WHITE, 1);
 						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid2'));
-						trace("Phase 2");
 						sexDad = new Character(dad.x - 1000, dad.y, "cockey");
 						add(sexDad);
 						dad.alpha = 0;
@@ -7182,8 +7186,6 @@ class PlayState extends MusicBeatState
 						dad = new Character(dad.x, dad.y, "eletric-cockadoodledoo-kapi", false);
 						add(dad);
 
-						trace("Kapi BG");
-
 						defaultCamZoom += 0.2;
 					case 1728:
 						for (sprite in cuzsieKapiEletricCockadoodledoo)
@@ -7200,13 +7202,11 @@ class PlayState extends MusicBeatState
 					case 1984:
 						FlxG.camera.zoom += 1;
 					case 1856:
-						trace("BF Float");
 						FlxTween.tween(boyfriend, {y: boyfriend.y - 700}, 8);
 					case 1983:
 						boyfriend.y = boyfriend.y + 700;
 						FlxG.camera.flash(FlxColor.WHITE, 1);
 						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid3'));
-						trace("Phase 3");
 
 						curECCCharacter = "pooper";
 
@@ -7224,7 +7224,6 @@ class PlayState extends MusicBeatState
 						indihome.screenCenter();
 						indihome.cameras = [camHUD];
 						add(indihome);
-						trace("Indihome");
 					case 2688:
 						remove(indihome);
 					case 2818 | 2944:
@@ -7245,8 +7244,6 @@ class PlayState extends MusicBeatState
 						add(dad);
 
 						dad.playAnim('pizza');
-
-						trace("Ayo the pizza here");
 					case 3008:
 						remove(dad);
 						dad = new Character(dad.x, dad.y, curECCCharacter, false);
@@ -7263,12 +7260,9 @@ class PlayState extends MusicBeatState
 						remove(indihome);
 						camHUD.visible = false;
 						boyfriend.playAnim("firstDeath");
-
-						trace("Death Animation");
 					case 3360:
 						boyfriend.playAnim("deathLoop");
 
-						trace("Death Loop");
 					case 3392:
 						camHUD.visible = true;
 						boyfriend.playAnim("idle");
@@ -7307,7 +7301,7 @@ class PlayState extends MusicBeatState
 					}
 				}
 
-			case 'eletric-cockadoodledoo':
+			case 'eletric-cockadoodledoo-two':
 				switch (curStep)
 				{
 					case 147:
@@ -7316,7 +7310,6 @@ class PlayState extends MusicBeatState
 						remove(dad);
 						dad = new Character(dad.x, dad.y, 'bartholemew', false);
 						add(dad);
-						trace("Bartholemew");
 					case 512:
 						remove(dad);
 						dad = new Character(dad.x, dad.y, curECCCharacter, false);
@@ -7324,7 +7317,6 @@ class PlayState extends MusicBeatState
 					case 832:
 						FlxG.camera.flash(FlxColor.WHITE, 1);
 						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid2'));
-						trace("Phase 2");
 						sexDad = new Character(dad.x - 1000, dad.y, "cockey");
 						add(sexDad);
 						dad.alpha = 0;
@@ -7345,8 +7337,6 @@ class PlayState extends MusicBeatState
 						dad = new Character(dad.x, dad.y, "cuzsiee", false);
 						add(dad);
 						iconP2.changeIcon(curECCCharacter);
-
-						trace("Kapi BG");
 
 						defaultCamZoom += 0.2;
 					case 1728:
@@ -7371,13 +7361,11 @@ class PlayState extends MusicBeatState
 						curECCCharacter = "pissey";
 						iconP2.changeIcon(curECCCharacter);
 					case 1856:
-						trace("BF Float");
 						FlxTween.tween(boyfriend, {y: boyfriend.y - 700}, 8);
 					case 1983:
 						boyfriend.y = boyfriend.y + 700;
 						FlxG.camera.flash(FlxColor.WHITE, 1);
 						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid3'));
-						trace("Phase 3");
 
 						curECCCharacter = "pooper";
 
@@ -7389,7 +7377,7 @@ class PlayState extends MusicBeatState
 						FlxG.camera.flash(FlxColor.WHITE, 0.25);
 						dad.visible = false;
 						sexDad.visible = false;
-					case 2239:	
+                                        case 2239:	
 						remove(dad);
 						dad = new Character(dad.x, dad.y, "pooper", false);
 						add(dad);
@@ -7402,7 +7390,6 @@ class PlayState extends MusicBeatState
 						indihome.screenCenter();
 						indihome.cameras = [camHUD];
 						add(indihome);
-						trace("Indihome");
 					case 2688:
 						remove(indihome);
 					case 2818 | 2944:
@@ -7427,8 +7414,6 @@ class PlayState extends MusicBeatState
 						iconP2.changeIcon(curECCCharacter);
 
 						dad.playAnim('pizza');
-
-						trace("Ayo the pizza here");
 					case 3008:
 						remove(dad);
 						dad = new Character(dad.x, dad.y, curECCCharacter, false);
@@ -7440,19 +7425,13 @@ class PlayState extends MusicBeatState
 						indihome.screenCenter();
 						indihome.cameras = [camHUD];
 						add(indihome);
-
-						trace("EGG McMuffin");
 					case 3328:
 						remove(indihome);
 						camHUD.visible = false;
 						boyfriend.playAnim("firstDeath");
 						boyfriend.canDance = false;
-
-						trace("Death Animation");
 					case 3360:
 						boyfriend.playAnim("deathLoop");
-
-						trace("Death Loop");
 					case 3392:
 						camHUD.visible = true;
 						boyfriend.playAnim("idle");
@@ -7500,20 +7479,17 @@ class PlayState extends MusicBeatState
 						remove(dad);
 						dad = new Character(dad.x, dad.y, 'bartholemew', false);
 						add(dad);
-						trace("Bartholemew");
 					case 512:
 						remove(dad);
 						dad = new Character(dad.x, dad.y, SONG.player2, false);
 						add(dad);
 					case 768:
 						FlxG.camera.flash(FlxColor.WHITE, 1);
-						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid2'));
-						trace("Phase 2");
+						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid2', 'shared'));
 					case 1530:
 						remove(dad);
 						dad = new Character(dad.x, dad.y, 'bombu', false);
 						add(dad);
-						trace("bombu");
 					case 1642:
 						for (sprite in cuzsieKapiBananacore)
 						{
@@ -7522,8 +7498,6 @@ class PlayState extends MusicBeatState
 						remove(dad);
 						dad = new Character(dad.x, dad.y, "bananacore-kapi", false);
 						add(dad);
-
-						trace("Kapi BG");
 					case 1664:
 						for (sprite in cuzsieKapiBananacore)
 						{
@@ -7533,11 +7507,9 @@ class PlayState extends MusicBeatState
 						dad = new Character(dad.x, dad.y, SONG.player2, false);
 						add(dad);
 
-						trace("Reset Kapi BG");
 						remove(dad);
 						dad = new Character(dad.x, dad.y, 'bombu', false);
 						add(dad);
-						trace("bombu");
 					case 1808:
 						FlxG.camera.zoom += 1;
 					case 1856:
@@ -7546,19 +7518,16 @@ class PlayState extends MusicBeatState
 					case 1983:
 						boyfriend.y = boyfriend.y + 700;
 						FlxG.camera.flash(FlxColor.WHITE, 1);
-						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid3'));
-						trace("Phase 3");
+						weirdBG.loadGraphic(Paths.image('backgrounds/void/bananaVoid3', 'shared'));
 					case 2208:
 						remove(dad);
 						dad = new Character(dad.x, dad.y, 'bambi-unfair-old', false);
 						add(dad);
-						trace("bambi-unfair-old");
 					case 2624:
 						indihome = new FlxSprite().loadGraphic(Paths.image("bananacore/indihome", 'shared'));
 						indihome.screenCenter();
 						indihome.cameras = [camHUD];
 						add(indihome);
-						trace("Indihome");
 					case 2688:
 						remove(indihome);
 					case 2818 | 2944:
@@ -7579,8 +7548,6 @@ class PlayState extends MusicBeatState
 						add(dad);
 
 						dad.playAnim('pizza');
-
-						trace("Ayo the pizza here");
 					case 3008:
 						remove(dad);
 						dad = new Character(dad.x, dad.y, SONG.player2, false);
@@ -7591,18 +7558,12 @@ class PlayState extends MusicBeatState
 						indihome.screenCenter();
 						indihome.cameras = [camHUD];
 						add(indihome);
-
-						trace("EGG McMuffin");
 					case 3328:
 						remove(indihome);
 						camHUD.visible = false;
 						boyfriend.playAnim("firstDeath");
-
-						trace("Death Animation");
 					case 3360:
 						boyfriend.playAnim("deathLoop");
-
-						trace("Death Loop");
 					case 3392:
 						camHUD.visible = true;
 						boyfriend.playAnim("idle");
