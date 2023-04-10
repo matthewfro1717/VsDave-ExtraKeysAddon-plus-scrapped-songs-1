@@ -1940,25 +1940,9 @@ class PlayState extends MusicBeatState
 				bgZoom = 0.6;
 				stageName = 'garrettLand';
 				
-				var bg:BGSprite = new BGSprite('bg', 350, 50, Paths.image('backgrounds/field/nightSky', 'shared'), null, 1.4, 1.4, true, true);
-				bg.setGraphicSize(Std.int(bg.width * 2));
+				var bg:BGSprite = new BGSprite('bg', -500, -300, Paths.image('backgrounds/field/bonk', 'shared'), null, 1.4, 1.4, true, true);
 				sprites.add(bg);
 				add(bg);
-
-				var backGrass:BGSprite = new BGSprite('backGrass', 250, 50, Paths.image('backgrounds/field/grass', 'shared'), null, 1.25, 1.1, true, true);
-				backGrass.setGraphicSize(Std.int(backGrass.width * 1.5));
-				sprites.add(backGrass);
-				add(backGrass);
-
-				var gate:BGSprite = new BGSprite('gate', 100, 200, Paths.image('backgrounds/field/gates', 'shared'), null, 1.05, 1, true, true);
-				gate.setGraphicSize(Std.int(gate.width * 1.5));
-				sprites.add(gate);
-				add(gate);
-
-				var floor:BGSprite = new BGSprite('floor', 100, 200, Paths.image('backgrounds/field/floor', 'shared'), null, 1, 1, true, true);
-				floor.setGraphicSize(Std.int(floor.width * 1.5));
-				sprites.add(floor);
-				add(floor);
 
 			case 'red-void' | 'green-void' | 'glitchy-void' | 'banana-hell':
 				bgZoom = 0.7;
